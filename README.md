@@ -74,16 +74,19 @@ import pandas as pd
 import os
 
 dongchedi_crawler = DongCheDiCrawler()
+
 # 1. 爬取销量排行榜信息
 dongchedi_crawler.sale_parser(
     csv_name='202404.csv',
     url='https://www.dongchedi.com/sales/sale-x-x-x-x-x-x'
 )
+
 # 2. 读取销量排行榜信息
 df = pd.read_csv('sale.csv', encoding='gbk')
 names = df['名称']
 param_links = df['参数链接']
 score_links = df['评分链接']
+
 # 3. 爬取汽车参数信息和评分信息
 os.makedirs('参数')
 os.makedirs('得分')
