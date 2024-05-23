@@ -1,6 +1,6 @@
 # 懂车帝汽车排行榜信息爬取
 ## 介绍
-    本项目是一个基于`Python+Selenium+Reqeusts+BeautifulSoup`的汽车排行榜信息爬取项目，旨在从懂车帝网站（https://www.dongchedi.com/） 爬取销量榜、麋鹿测试榜、加速榜和制动榜汽车信息。
+本项目是一个基于`Python+Selenium+Reqeusts+BeautifulSoup`的汽车排行榜信息爬取项目，旨在从懂车帝网站（https://www.dongchedi.com/） 爬取销量榜、麋鹿测试榜、加速榜和制动榜汽车信息。
 1. 爬取**汽车排行榜信息**，并将这些数据分别保存为`CSV`文件
 2. 爬取`CSV`文件中车辆的**详细参数信息**，并将这些数据保存为`CSV`文件
 
