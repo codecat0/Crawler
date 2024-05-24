@@ -77,7 +77,7 @@ dongchedi_crawler = DongCheDiCrawler()
 
 # 1. 爬取销量排行榜信息
 dongchedi_crawler.sale_parser(
-    csv_name='202404.csv',
+    csv_name='sale.csv',
     url='https://www.dongchedi.com/sales/sale-x-x-x-x-x-x'
 )
 
