@@ -67,43 +67,54 @@
 ```
 
 ## 使用方法
-
+### 1. 爬取排行榜信息
 ```python
 from selenuim_crawler import DongciediCrawler
-import pandas as pd
-import os
 
+# 1. 实例化爬虫对象
 dongchedi_crawler = DongCheDiCrawler()
 
-# 1. 爬取销量排行榜信息
+# 2. sale_url为销量排行榜的URL
+sale_url = 'https://www.dongchedi.com/sales/sale-x-x-x-x-x-x'
+
+# 3. 爬取销量排行榜信息
 dongchedi_crawler.sale_parser(
     csv_name='sale.csv',
-    url='https://www.dongchedi.com/sales/sale-x-x-x-x-x-x'
+    url=sale_url
 )
+```
+### 2. 爬取汽车参数信息
+```python
+from selenuim_crawler import DongciediCrawler
 
-# 2. 读取销量排行榜信息
-df = pd.read_csv('sale.csv', encoding='gbk')
-names = df['名称']
-param_links = df['参数链接']
-score_links = df['评分链接']
+# 1. 实例化爬虫对象
+dongchedi_crawler = DongCheDiCrawler()
 
-# 3. 爬取汽车参数信息和评分信息
-os.makedirs('参数')
-os.makedirs('得分')
-num_cars = len(names)
-for idx in range(num_cars):
-    name = names[idx]  # 汽车名称
-    param_link = param_links[idx]  # 汽车参数链接
-    score_link = score_links[idx]  # 汽车评分链接
-    _id = param_link.split('-')[-1]  # 汽车ID
-    dongchedi_crawler.param_parser(
-        url=param_link,
-        csv_name=f'参数/{name}_{_id}.csv',
-    )
-    dongchedi_crawler.score_parser(
-        url=score_link,
-        csv_name=f'得分/{name}_{_id}.csv',
-    )
+# 2. params_url为汽车参数的URL
+params_url = 'https://www.dongchedi.com/auto/params-carIds-x-4363'
+
+# 3. 爬取汽车参数信息
+dongchedi_crawler.params_parser(
+    csv_name='params.csv',
+    url=params_url
+)
+```
+
+### 3. 爬取汽车得分信息
+```python
+from selenuim_crawler import DongciediCrawler
+
+# 1. 实例化爬虫对象
+dongchedi_crawler = DongCheDiCrawler()
+
+# 2. score_url为汽车评分的URL
+score_url = 'https://www.dongchedi.com/auto/series/score/4363'
+
+# 3. 爬取汽车得分信息
+dongchedi_crawler.get_score(
+    csv_name='scores.csv',
+    url=score_url
+)
 ```
 ## 运行结果
 - **销量排行榜信息**
